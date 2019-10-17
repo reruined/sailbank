@@ -1,0 +1,34 @@
+html, body { 
+  background: black;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+#contents {
+  background: darkgray;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  max-width: 750px;
+
+  padding: 20px;
+  margin: 0;
+  border: none;
+  margin-left: auto; margin-right: auto;
+}
+
+#contents li {
+  display: inline-block;
+  list-style: none;
+  margin: 5px;
+}
+
+h1 {
+  padding-top: 20px;
+  text-align: center;
+}
+
