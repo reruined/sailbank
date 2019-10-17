@@ -8,7 +8,8 @@
     "express": "^4.17.1",
     "node-fetch": "^2.6.0",
     "papaparse": "^5.1.0",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "xml2js": "^0.4.22"
   },
   "main": "server.js",
   "devDependencies": {

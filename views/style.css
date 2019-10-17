@@ -8,23 +8,45 @@ html, body {
   color: white;
 }
 
-#contents {
+div, ol, ul {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+.contents {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contents .item-list {
+  margin-top: 2em;
+}
+
+.contents .item-list .item {
+  margin-top: 0.25em;
+}
+
+.contents .item-grid {
   background: darkgray;
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-  max-width: 750px;
-
   padding: 20px;
-  margin: 0;
-  border: none;
-  margin-left: auto; margin-right: auto;
 }
 
-#contents li {
+.item-grid .item {
   display: inline-block;
-  list-style: none;
   margin: 5px;
+}
+
+.item .count {
+  margin-left: 1ex;
 }
 
 h1 {

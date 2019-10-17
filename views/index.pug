@@ -9,7 +9,15 @@ html
 
   body
       h1 Sail bank
-      ol#contents
-        li.item
-          a(href='https://www.classic.wowhead.com/item=19019')
-            img(src='https://wow.zamimg.com/images/wow/icons/large/inv_sword_39.jpg')
+      .contents
+        ol.item-grid
+          each item in contents
+            li.item
+              a(href=`https://www.classic.wowhead.com/item=${item.id}`)
+                img(src=`https://wow.zamimg.com/images/wow/icons/large/${item.icon}.jpg`)
+
+        ol.item-list
+          each item in contents
+            li.item
+              a(href=`https://www.classic.wowhead.com/item=${item.id}`, data-wh-rename-link="true", data-wh-icon-size="small").
+              span.count= `x ${item.Count}`
