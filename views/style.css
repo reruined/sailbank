@@ -6,6 +6,8 @@ html, body {
   padding: 0;
   margin: 0;
   color: white;
+
+  font-family: Arial Narrow,Arial,sans-serif; 
 }
 
 div, ol, ul {
@@ -24,14 +26,6 @@ li {
   margin-right: auto;
 }
 
-.contents .item-list {
-  margin-top: 2em;
-}
-
-.contents .item-list .item {
-  margin-top: 0.25em;
-}
-
 .contents .item-grid {
   background: darkgray;
   display: flex;
@@ -40,12 +34,42 @@ li {
   padding: 20px;
 }
 
-.item-grid .item {
+.contents .item-grid .item {
   display: inline-block;
+  position: relative;
   margin: 5px;
 }
 
-.item .count {
+.contents .item-grid .item .count-fg {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 4px 6px 4px 6px;
+  color: white;
+}
+
+.contents .item-grid .item .count-bg {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 4px 6px 4px 6px;
+  color: white;
+  -webkit-text-stroke: 5px black;
+}
+
+.contents .item-list {
+  margin-top: 2em;
+}
+
+.contents .item-list .item {
+  margin-top: 0.25em;
+}
+
+.contents .item-list .item .count {
   margin-left: 1ex;
 }
 

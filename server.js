@@ -9,6 +9,7 @@ const bankDataSrc = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0BFdfpHUG
 
 const app = express()
 app.set('view engine', 'pug')
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
   fetch(bankDataSrc)
