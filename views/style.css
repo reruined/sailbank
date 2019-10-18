@@ -23,13 +23,31 @@ a {
 }
 
 .contents {
+  position: relative;
   width: 355px;
+  margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
   
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.contents .title {
+  position: absolute;
+  top: 16px;
+  font-size: 14px;
+
+  text-shadow: -1px 1px 2px #000;
+}
+
+.contents .crest {
+  position: absolute;
+  top: 2px;
+  left: -6px;
+  width: 51px;
+  height: auto;
 }
 
 .contents .item-grid {
