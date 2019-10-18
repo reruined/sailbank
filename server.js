@@ -4,7 +4,7 @@ const fetch = require('node-fetch')
 const papa = require('papaparse')
 const xml2js = require('xml2js')
 
-const port = 1337
+const port = process.env.PORT || 1337
 const bankDataSrc = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0BFdfpHUGmyGD6wyw8fcgADKA-CQXIosKU-JA6k4o5mjp-oa4UDRG5cxJOyeiOpUB74tSPjCiEHa1/pub?output=csv';
 
 const app = express()
