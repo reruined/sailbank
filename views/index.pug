@@ -15,6 +15,9 @@ html
             li.item
               a(href=`https://www.classic.wowhead.com/item=${item.id}`)
                 img(src=`https://wow.zamimg.com/images/wow/icons/medium/${item.icon}.jpg`)
+                if item.count > 1
+                  span.count-bg= item.count
+                  span.count-fg= item.count
 
         ol.item-list
           each item in contents

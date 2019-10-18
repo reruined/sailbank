@@ -56,9 +56,8 @@ a {
   position: absolute;
   right: 0px;
   bottom: 0px;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 4px 6px 4px 6px;
+  font-size: 14px;
+  margin: 4px 6px 2.5px 6px;
   color: white;
 }
 
@@ -66,11 +65,10 @@ a {
   position: absolute;
   right: 0px;
   bottom: 0px;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 4px 6px 4px 6px;
+  font-size: 14px;
+  margin: 4px 6px 2.5px 6px;
   color: white;
-  -webkit-text-stroke: 5px black;
+  -webkit-text-stroke: 3px black;
 }
 
 .contents .item-list {
