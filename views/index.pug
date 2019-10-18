@@ -14,12 +14,10 @@ html
           each item in contents
             li.item
               a(href=`https://www.classic.wowhead.com/item=${item.id}`)
-                img(src=`https://wow.zamimg.com/images/wow/icons/large/${item.icon}.jpg`)
-                span.count-bg= item.Count
-                span.count-fg= item.Count
+                img(src=`https://wow.zamimg.com/images/wow/icons/medium/${item.icon}.jpg`)
 
         ol.item-list
           each item in contents
             li.item
-              a(href=`https://www.classic.wowhead.com/item=${item.id}`, data-wh-rename-link="true", data-wh-icon-size="small").
+              a(href=`https://www.classic.wowhead.com/item=${item.id}`, data-wh-rename-link="false", data-wh-icon-size="small")= item.Item
               span.count= `x ${item.Count}`

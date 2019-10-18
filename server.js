@@ -16,8 +16,6 @@ app.get('/', (req, res) => {
     .then(res => res.text())
     .then(csv => {
       const parsedCsv = papa.parse(csv, { header: true, dynamicTyping: true })
-      console.log('parsedCsv:')
-      console.log(parsedCsv)
 
       return Promise.all(parsedCsv.data.map(item => {
         return new Promise((resolve, reject) => {
@@ -28,9 +26,8 @@ app.get('/', (req, res) => {
             .then(res => res.text())
             .then(xml => xml2js.parseStringPromise(xml))
             .then(parsedXml => {
-              console.log()
-              const id = parsedXml.wowhead.item[0]['$'].id
-              const icon = parsedXml.wowhead.item[0].icon[0]._
+              const id = parsedXml.wowhead.error ? -1 : parsedXml.wowhead.item[0]['$'].id;
+              const icon = parsedXml.wowhead.error ? 'inv_misc_questionmark' : parsedXml.wowhead.item[0].icon[0]._
               resolve(Object.assign({}, item, {id, icon}))
             })
         })
@@ -38,7 +35,7 @@ app.get('/', (req, res) => {
     })
     .then(items => {
       console.log(items)
-      res.render('index', { contents: items })
+      res.render('index', { contents: items.slice(0, 28) })
     })
 })
 

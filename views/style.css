@@ -10,34 +10,45 @@ html, body {
   font-family: Arial Narrow,Arial,sans-serif; 
 }
 
-div, ol, ul {
+div, ol, ul, li {
   padding: 0;
   margin: 0;
   border: none;
-}
-
-li {
   list-style: none;
 }
 
+a {
+  color: inherit;
+}
+
 .contents {
-  max-width: 750px;
+  width: 355px;
   margin-left: auto;
   margin-right: auto;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contents .item-grid {
-  background: darkgray;
+  background-image: url("UI-BankFrame.PNG");
+  background-origin: border-box;
+  background-repeat: no-repeat;
+
+  padding: 74.5px 0px 0px 41.5px;
+  width: 355px;
+  height: 343px;
+
   display: flex;
   flex-wrap: wrap;
-  flex-grow: 1;
-  padding: 20px;
+  align-content: start;
 }
 
 .contents .item-grid .item {
   display: inline-block;
   position: relative;
-  margin: 5px;
+  margin: 0px 12.7px 4px 0px;
 }
 
 .contents .item-grid .item .count-fg {
@@ -63,6 +74,7 @@ li {
 
 .contents .item-list {
   margin-top: 2em;
+  width: 100%;
 }
 
 .contents .item-list .item {
