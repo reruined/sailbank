@@ -19,5 +19,5 @@ html
         ol.item-list
           each item in contents
             li.item
-              a(href=`https://www.classic.wowhead.com/item=${item.id}`, data-wh-rename-link="false", data-wh-icon-size="small")= item.Item
-              span.count= `x ${item.Count}`
+              a(href=`https://www.classic.wowhead.com/item=${item.id}`, data-wh-rename-link="false", data-wh-icon-size="small")= item.name
+              span.count= `x ${item.count}`

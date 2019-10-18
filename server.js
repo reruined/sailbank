@@ -28,14 +28,13 @@ app.get('/', (req, res) => {
             .then(parsedXml => {
               const id = parsedXml.wowhead.error ? -1 : parsedXml.wowhead.item[0]['$'].id;
               const icon = parsedXml.wowhead.error ? 'inv_misc_questionmark' : parsedXml.wowhead.item[0].icon[0]._
-              resolve(Object.assign({}, item, {id, icon}))
+              resolve(Object.assign({}, {name: item.Item, count: item.Count || 1, id, icon}))
             })
         })
       }))
     })
     .then(items => {
-      console.log(items)
-      res.render('index', { contents: items.slice(0, 28) })
+      res.render('index', { contents: items })
     })
 })
 
