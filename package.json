@@ -1,20 +1,11 @@
 {
   "name": "sail-bank",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "serve -l 1337 ./public"
   },
-  "dependencies": {
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.0",
-    "papaparse": "^5.1.0",
-    "pug": "^2.0.4",
-    "xml2js": "^0.4.22"
-  },
-  "main": "server.js",
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^6.5.1",
-    "nodemon": "^1.19.4"
+    "serve": "^11.2.0"
   }
 }
