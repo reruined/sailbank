@@ -43,7 +43,7 @@ html {
 
 .contents .title {
   position: absolute;
-  top: 16px;
+  top: 14px;
   font-size: 14px;
 
   text-shadow: -1px 1px 2px #000;
@@ -51,20 +51,21 @@ html {
 
 .contents .crest {
   position: absolute;
-  top: 5px;
-  left: 1px;
-  width: 51px;
+  top: 6px;
+  left: -4px;
+  width: 56px;
   height: auto;
+  border-radius: 50%;
 }
 
 .contents .item-grid {
-  background-image: url("UI-BankFrame.PNG");
+  background-image: url("UI-BankFrame_l.png");
   background-origin: border-box;
   background-repeat: no-repeat;
 
-  padding: 74.5px 0px 0px 41.5px;
+  padding: 72.5px 0px 0px 39.3px;
   width: 355px;
-  height: 343px;
+  height: 357px;
 
   display: flex;
   flex-wrap: wrap;
