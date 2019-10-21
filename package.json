@@ -10,7 +10,7 @@
     "node-fetch": "^2.6.0",
     "papaparse": "^5.1.0",
     "pug": "^2.0.4",
-    "xml2js": "^0.4.22"
+    "xmldom": "^0.1.27"
   },
   "main": "server.js",
   "devDependencies": {

@@ -1,8 +1,7 @@
 const express = require('express')
-const path = require('path')
 const fetch = require('node-fetch')
 const papa = require('papaparse')
-const xml2js = require('xml2js')
+const DOMParser = require('xmldom').DOMParser
 
 const port = process.env.PORT || 1337
 const bankDataSrc = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0BFdfpHUGmyGD6wyw8fcgADKA-CQXIosKU-JA6k4o5mjp-oa4UDRG5cxJOyeiOpUB74tSPjCiEHa1/pub?output=csv';
@@ -20,14 +19,19 @@ app.get('/', (req, res) => {
       return Promise.all(parsedCsv.data.map(item => {
         return new Promise((resolve, reject) => {
           const itemName = item.Item.toLowerCase()
-          const wowheadUrl = `https://www.classic.wowhead.com/item=${escape(itemName)}&xml`
+          const wowheadUrl = `https://classic.wowhead.com/item=${escape(itemName)}&xml`
 
           fetch(wowheadUrl)
             .then(res => res.text())
-            .then(xml => xml2js.parseStringPromise(xml))
-            .then(parsedXml => {
-              const id = parsedXml.wowhead.error ? -1 : parsedXml.wowhead.item[0]['$'].id;
-              const icon = parsedXml.wowhead.error ? 'inv_misc_questionmark' : parsedXml.wowhead.item[0].icon[0]._
+            .then(xml => {
+              const doc = new DOMParser().parseFromString(xml)
+              const error = doc.getElementsByTagName('error').length > 0
+              error && console.log('error')
+
+              const id = error ? -1 : doc.getElementsByTagName('item')[0].getAttribute('id')
+
+              const iconNode = doc.getElementsByTagName('icon')[0]
+              const icon = iconNode.firstChild ? iconNode.firstChild.nodeValue : 'inv_misc_questionmark'
               resolve(Object.assign({}, {name: item.Item, count: item.Count || 1, id, icon}))
             })
         })
