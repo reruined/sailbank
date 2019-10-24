@@ -2,26 +2,36 @@
 <html>
 
 <head>
+  <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/papaparse@5.1.0/papaparse.min.js"></script>
+
+  <script>
+    const whTooltips = {
+      colorLinks: true,
+      iconizeLinks: false,
+      renameLinks: false
+    }
+  </script>
+  <script src="https://wow.zamimg.com/widgets/power.js"></script>
 </head>
 
 <body>
   <div id="app">
-    {{ message }}
-    <span v-bind:title="message">
-      Hover your mouse over me for a few seconds
-      to see my dynamically bound title!
-    </span>
+    <input v-model="filter">
+    <ol>
+      <li v-for="item in filteredItems">
+        <span>{{ item.count }} x </span>
+        <a 
+          v-bind:href="`https://classic.wowhead.com/item=${item.id}`"
+          data-wh-rename-link="false"
+          data-wh-icon-size="small"
+         >{{ item.name }}</a>
+      </li>
+    </ol>
   </div>
 
-  <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        message: 'Hello Vue!'
-      }
-    })
-  </script>
+  <script src="code.js"></script>
 </body>
 
 </html>
