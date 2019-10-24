@@ -21,13 +21,25 @@ const app = new Vue({
   },
 })
 
-Papa.parse(BANK_DATA_SRC, {
-  download: true,
-  header: true,
-  dynamicTyping: true,
-  complete: result => app.items = result.data.map(item => ({
-    id: item.id,
-    name: item.Item,
-    count: item.Count
-  }))
+new Promise((resolve, reject) => {
+  Papa.parse(BANK_DATA_SRC, {
+    download: true,
+    header: true,
+    dynamicTyping: true,
+    complete: result => resolve(result.data.map(item => ({
+      id: item.id,
+      name: item.Item,
+      count: item.Count
+    })))
+  })
 })
+  .then(items => Promise.all(items.map(item => new Promise((resolve, reject) => {
+    fetch(`https://cors-anywhere.herokuapp.com/https://classic.wowhead.com/item=${item.id}&xml`)
+      .then(res => res.text())
+      .then(rawXml => {
+        const doc = new DOMParser().parseFromString(rawXml, 'text/xml')
+        console.log(item.name, doc)
+        resolve(item)
+      })
+  }))))
+  .then(items => app.items = items)
